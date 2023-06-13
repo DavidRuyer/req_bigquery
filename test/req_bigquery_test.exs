@@ -18,7 +18,8 @@ defmodule ReqBigQueryTest do
       assert Jason.decode!(request.body) == %{
                "defaultDataset" => %{"datasetId" => "my_awesome_dataset"},
                "query" => "select * from iris",
-               "maxResults" => 10000
+               "useLegacySql" => false,
+               "maxResults" => 10000,
              }
 
       assert URI.to_string(request.url) ==
